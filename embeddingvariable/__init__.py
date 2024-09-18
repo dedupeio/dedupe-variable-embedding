@@ -19,17 +19,14 @@ class Embedding(BaseStringType):
         self,
         field: str,
         corpus: Iterable[str],
-        model_id: str = "all-mpnet-base-v2",
-        trust_remote_code: bool = False,
-        config_kwargs: dict | None = None,
+        model: sentence_transformers.SentenceTransformer | None = None,
         **kwargs
     ):
 
         super().__init__(field, **kwargs)
 
-        model = sentence_transformers.SentenceTransformer(
-            model_id, trust_remote_code=trust_remote_code, config_kwargs=config_kwargs
-        )
+        if model is None:
+            model = sentence_transformers.SentenceTransformer("all-mpnet-base-v2")
 
         self.embeddings = {
             string: embedding.reshape(1, -1)
