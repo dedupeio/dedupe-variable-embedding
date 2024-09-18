@@ -13,6 +13,12 @@ dependencies = [
 [project.urls]
 Homepage = "https://github.com/dedupeio/dedupe-variables-embedding"
 
+[project.optional-dependencies]
+dev = ["pytest",
+       "black",
+       "isort"
+]
+
 [build-system]
 requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
