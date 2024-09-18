@@ -1,0 +1,29 @@
+[project]
+name = "dedupe-variable-embedding"
+version = "0.0.0"
+description = "Embedding variable type for dedupe"
+readme = "README.md"
+license = {text = "MIT License", url = "http://www.opensource.org/licenses/mit-license.php"}
+requires-python = ">=3.8"
+dependencies = [
+  "sentence-transformers",
+  "dedupe>=3.0"
+  ]
+
+[project.urls]
+Homepage = "https://github.com/dedupeio/dedupe-variables-embedding"
+
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["embeddingvariable"]
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
+testpaths = [
+  "tests",
+  ]
